@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Camp - ملخص مهندس الشبكات الشامل</title>
+    <title>Network Camp - مرجع مهندس الشبكات الشامل (السيشن الأولى والثانية)</title>
     <style>
         :root {
             --bg-color: #0b1120;
@@ -15,6 +15,7 @@
             --accent-green: #34d399;
             --accent-red: #f87171;
             --accent-orange: #fb923c;
+            --badge-bg: #1e293b;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -86,6 +87,16 @@
         }
         .badge-success { color: var(--accent-green); }
         .badge-danger { color: var(--accent-red); }
+        .session-badge {
+            background-color: #0369a1;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            margin-right: 10px;
+            display: inline-block;
+        }
         
         /* OSI Accordion Styles */
         .osi-layer {
@@ -188,11 +199,11 @@
 
     <div class="container">
         <header>
-            <h1>Network Camp Hub</h1>
-            <p>المرجع الهندسي الشامل لمهندسي الشبكات (يضم السيشن الأولى والسيشن الثانية بالكامل)</p>
+            <h1>Network Camp - المرجع الشامل</h1>
+            <p>مرجع مهندسي الشبكات يضم تفاصيل السيشن الأولى والسيشن الثانية بالكامل</p>
         </header>
 
-        <!-- ================= سيشن 1 ================= -->
+        <!-- ================= قسم السيشن الأولى ================= -->
         <div class="section-title">🌐 أولاً: السيشن الأولى (أساسيات الشبكات والـ OSI)</div>
 
         <div class="card">
@@ -241,7 +252,7 @@
             </div>
         </div>
 
-        <!-- نموذج OSI المطور والاحترافي مطابق للصور -->
+        <!-- نموذج OSI بالتفصيل الكامل المطابق للصور -->
         <div class="card">
             <div class="card-title">🧱 نموذج OSI (The 7 Layers) - اضغط لتوسيع التفاصيل</div>
             
@@ -309,11 +320,19 @@
             </div>
         </div>
 
-        <!-- ================= سيشن 2 ================= -->
-        <div class="section-title">🌐 ثانياً: السيشن الثانية (IPv4 & Subnetting & Protocols)</div>
+        <div class="card">
+            <div class="card-title">📐 7. الهيكل الهندسي للشبكة (Network Topologies)</div>
+            <div class="sub-card"><div class="sub-title" style="color: var(--accent-cyan);">Star Topology</div><p style="color: var(--text-muted); margin:0;">جهاز مركزي (Switch) تتصل به جميع الأجهزة بشكل مستقل. (الأكثر استخداماً). عطل كابل لا يؤثر، وعطل المركزي يسقط الشبكة.</p></div>
+            <div class="sub-card"><div class="sub-title" style="color: var(--accent-green);">Mesh Topology</div><p style="color: var(--text-muted); margin:0;">كل جهاز متصل بكل الأجهزة الأخرى لضمان الاستقرار وعدم انقطاع الشبكة (Redundancy)، لكن بتكلفة عالية.</p></div>
+            <div class="sub-card"><div class="sub-title" style="color: var(--accent-orange);">Bus Topology</div><p style="color: var(--text-muted); margin:0;">كابل رئيسي واحد متصل به جميع الأجهزة (شبه منقرض)، قطع الكابل يوقف الشبكة بالكامل.</p></div>
+            <div class="sub-card"><div class="sub-title">Ring Topology</div><p style="color: var(--text-muted); margin:0;">حلقة مغلقة والبيانات تسير في اتجاه واحد، عطل جهاز يكسر الحلقة.</p></div>
+        </div>
+
+        <!-- ================= قسم السيشن الثانية ================= -->
+        <div class="section-title">🌐 ثانياً: السيشن الثانية <span class="session-badge">تُستخدم في السيشن الثانية</span></div>
 
         <div class="card">
-            <div class="card-title">1. مفاهيم الـ IPv4 والـ Subnetting</div>
+            <div class="card-title">1. مفاهيم الـ IPv4 والـ Subnetting <span class="session-badge">تُستخدم في السيشن الثانية</span></div>
             <p>• إجمالي العناوين $2^{32}$ (حوالي 4.3 مليار عنوان).</p>
             <p>• سر الـ <b>(-2)</b>: خصم عنوانين أساسيين لكل بلوك وهما الـ Network ID والـ Broadcast Address.</p>
             <p>• <b>بروتوكول الـ ARP:</b> لحل معضلة ربط الـ IP بالـ MAC Address في الشبكة المحلية (ARP Request و ARP Reply).</p>
@@ -321,7 +340,7 @@
         </div>
 
         <div class="card">
-            <div class="card-title">🧮 أدوات حسابية تفاعلية (السيشن الثانية)</div>
+            <div class="card-title">🧮 أدوات حسابية تفاعلية <span class="session-badge">تُستخدم في السيشن الثانية</span></div>
             
             <div class="tool-box">
                 <h3 style="color: var(--accent-cyan); margin-top:0;">حاسبة الـ Subnetting والتفاصيل</h3>
@@ -348,7 +367,7 @@
         </div>
 
         <footer>
-            <p>Created by Gemini for Engineering Study Revision | Network Camp Hub</p>
+            <p>Created by Gemini for Engineering Study Revision | Sessions 1 & 2 Hub</p>
         </footer>
     </div>
 
