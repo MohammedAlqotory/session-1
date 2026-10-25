@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Camp - مرجع مهندس الشبكات الشامل (السيشن الأولى والثانية)</title>
+    <title>Network Camp - المرجع الهندسي الشامل</title>
     <style>
         :root {
             --bg-color: #0b1120;
@@ -15,7 +15,6 @@
             --accent-green: #34d399;
             --accent-red: #f87171;
             --accent-orange: #fb923c;
-            --badge-bg: #1e293b;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -199,13 +198,14 @@
 
     <div class="container">
         <header>
-            <h1>Network Camp - المرجع الشامل</h1>
-            <p>مرجع مهندسي الشبكات يضم تفاصيل السيشن الأولى والسيشن الثانية بالكامل</p>
+            <h1>Network Camp Hub</h1>
+            <p>المرجع السريع لمهندسي الشبكات، يضم مفاهيم السيشن الأولى والسيشن الثانية بترتيب دقيق.</p>
         </header>
 
         <!-- ================= قسم السيشن الأولى ================= -->
-        <div class="section-title">🌐 أولاً: السيشن الأولى (أساسيات الشبكات والـ OSI)</div>
+        <div class="section-title">🌐 أولاً: السيشن الأولى (أساسيات الشبكات)</div>
 
+        <!-- 1. مفهوم الشبكة -->
         <div class="card">
             <div class="card-title">1. مفهوم الشبكة (Network Definition)</div>
             <p>الشبكة هي ربط جهازين أو أكثر معاً بهدف رئيسي وهو <b>المشاركة (Sharing)</b> سواء للموارد (طابعات، البيانات، ملفات)، أو الخدمات (إنترنت).</p>
@@ -223,6 +223,7 @@
             </div>
         </div>
 
+        <!-- 2. أنواع الشبكات حسب الحجم -->
         <div class="card">
             <div class="card-title">2. أنواع الشبكات حسب الحجم (Network Scope)</div>
             <div class="sub-card"><div class="sub-title">PAN (Personal Area Network)</div><p style="color: var(--text-muted); margin:0;">شبكة شخصية (أمتار)، مثل: سماعة بلوتوث، ماوس وايرلس.</p></div>
@@ -232,6 +233,7 @@
             <div class="sub-card"><div class="sub-title" style="color: var(--accent-orange);">WAN (Wide Area Network)</div><p style="color: var(--text-muted); margin:0;">شبكة واسعة (دول/قارات)، مثل: الإنترنت وربط الفروع البعيدة.</p></div>
         </div>
 
+        <!-- 3. أجهزة الشبكة -->
         <div class="card">
             <div class="card-title">3. أجهزة الشبكة (Network Devices)</div>
             <div class="sub-card">
@@ -247,14 +249,57 @@
                 <p style="margin: 5px 0; color: var(--text-muted);"><span class="badge-danger">✕</span> جهاز قديم (غبي)، لا يفهم العناوين.<br><span class="badge-danger">✕</span> يرسل البيانات للجميع (Broadcast).<br><span class="badge-danger">✕</span> يسبب بطء وتصادم للبيانات (Collision).</p>
             </div>
             <div class="sub-card">
-                <div class="sub-title">Access Point & Modem & Firewall</div>
-                <p style="color: var(--text-muted); margin: 0;"><b>Access Point:</b> تحويل السلكي لاسلكي.<br><b>Modem:</b> ترجمة الإشارات الرقمية والتناظرية.<br><b>Firewall:</b> الجدار الناري لحراسة أمن الشبكة.</p>
+                <div class="sub-title">Access Point</div>
+                <p style="color: var(--text-muted); margin: 0;">نقطة وصول لتحويل الشبكة السلكية إلى لاسلكية (Wi-Fi) للسماح بتوصيل الهواتف والأجهزة بدون كابلات.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-orange);">Modem</div>
+                <p style="color: var(--text-muted); margin: 0;">مترجم الإشارات (Modulator/Demodulator) بين الإشارة الرقمية للكمبيوتر والإشارة التناظرية لخطوط التليفون.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-red);">Firewall</div>
+                <p style="color: var(--text-muted); margin: 0;">الجدار الناري، حارس أمن الشبكة. يراقب البيانات الداخلة والخارجة ويمنع الاختراقات بناءً على قواعد محددة.</p>
             </div>
         </div>
 
-        <!-- نموذج OSI بالتفصيل الكامل المطابق للصور -->
+        <!-- 4. وسائط النقل -->
         <div class="card">
-            <div class="card-title">🧱 نموذج OSI (The 7 Layers) - اضغط لتوسيع التفاصيل</div>
+            <div class="card-title">4. وسائط النقل (Transmission Media)</div>
+            <div class="sub-title" style="color: var(--text-main); margin-top: 10px;">سلكي (Wired)</div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-cyan);">Twisted Pair (UTP/STP)</div>
+                <p style="color: var(--text-muted); margin: 0;">كابلات نحاس مجدولة (Ethernet) تُستخدم في الـ LAN. تنقل نبضات كهربائية. (Cat5e, Cat6).</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-cyan);">Fiber Optics</div>
+                <p style="color: var(--text-muted); margin: 0;">ألياف ضوئية. سرعات فائقة ومسافات طويلة، تنقل البيانات كنبضات ضوء. (Single-mode, Multi-mode).</p>
+            </div>
+            <div class="sub-title" style="color: var(--text-main); margin-top: 15px;">لاسلكي (Wireless)</div>
+            <div class="sub-card">
+                <p style="color: var(--text-muted); margin: 0 0 8px 0;">تعتمد على موجات الراديو لنقل البيانات في الهواء، توفر حرية الحركة (Mobility).</p>
+                <p style="color: var(--text-muted); margin: 0 0 8px 0;"><b>أمثلة:</b> Wi-Fi, 4G/5G, Bluetooth</p>
+                <p style="color: var(--accent-red); margin: 0;"><b>العيوب:</b> عرضة للتشويش والتداخل، وأقل أماناً من السلكي.</p>
+            </div>
+        </div>
+
+        <!-- 5. نموذج الخادم والعميل -->
+        <div class="card">
+            <div class="card-title">5. نموذج الخادم والعميل (Client-Server Model)</div>
+            <div class="sub-card" style="border-color: var(--accent-cyan);">
+                <div class="sub-title" style="color: var(--accent-cyan);">Client (العميل)</div>
+                <p style="color: var(--text-muted); margin: 0;">الجهاز أو البرنامج الذي يطلب (Request) الخدمة (مثل المتصفح).</p>
+            </div>
+            <div style="text-align: center; margin: 10px 0; color: var(--accent-cyan); font-weight: bold;">Request ← ⇄ → Response</div>
+            <div class="sub-card" style="border-color: var(--accent-green);">
+                <div class="sub-title" style="color: var(--accent-green);">Server (الخادم)</div>
+                <p style="color: var(--text-muted); margin: 0;">الجهاز القوي الذي يعالج الطلب ويرد (Response) بالبيانات (Web Server, File Server).</p>
+            </div>
+        </div>
+
+        <!-- 6. نموذج OSI -->
+        <div class="card">
+            <div class="card-title">6. نموذج OSI (The 7 Layers) - اضغط لتوسيع التفاصيل</div>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">اضغط على أي طبقة لرؤية التفاصيل الكاملة (الوظيفة، PDU، والعنوان):</p>
             
             <div class="osi-layer" onclick="toggleOsi('l7')">
                 <div class="osi-header"><span>L7. Application Layer (طبقة التطبيقات)</span><span>▼</span></div>
@@ -320,12 +365,33 @@
             </div>
         </div>
 
+        <!-- 7. الهيكل الهندسي -->
         <div class="card">
-            <div class="card-title">📐 7. الهيكل الهندسي للشبكة (Network Topologies)</div>
-            <div class="sub-card"><div class="sub-title" style="color: var(--accent-cyan);">Star Topology</div><p style="color: var(--text-muted); margin:0;">جهاز مركزي (Switch) تتصل به جميع الأجهزة بشكل مستقل. (الأكثر استخداماً). عطل كابل لا يؤثر، وعطل المركزي يسقط الشبكة.</p></div>
-            <div class="sub-card"><div class="sub-title" style="color: var(--accent-green);">Mesh Topology</div><p style="color: var(--text-muted); margin:0;">كل جهاز متصل بكل الأجهزة الأخرى لضمان الاستقرار وعدم انقطاع الشبكة (Redundancy)، لكن بتكلفة عالية.</p></div>
-            <div class="sub-card"><div class="sub-title" style="color: var(--accent-orange);">Bus Topology</div><p style="color: var(--text-muted); margin:0;">كابل رئيسي واحد متصل به جميع الأجهزة (شبه منقرض)، قطع الكابل يوقف الشبكة بالكامل.</p></div>
-            <div class="sub-card"><div class="sub-title">Ring Topology</div><p style="color: var(--text-muted); margin:0;">حلقة مغلقة والبيانات تسير في اتجاه واحد، عطل جهاز يكسر الحلقة.</p></div>
+            <div class="card-title">7. الهيكل الهندسي للشبكة (Network Topologies)</div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-cyan);">Star Topology</div>
+                <p style="color: var(--text-muted); margin: 5px 0;">جهاز مركزي (Switch) تتصل به جميع الأجهزة بشكل مستقل. (الأكثر استخداماً).</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-success">✓ ميزة:</span> عطل كابل واحد لا يؤثر على باقي الشبكة.</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-danger">✕ عيب:</span> إذا تعطل الجهاز المركزي تقع الشبكة كاملة.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-green);">Mesh Topology</div>
+                <p style="color: var(--text-muted); margin: 5px 0;">كل جهاز متصل بكل الأجهزة الأخرى. تستخدم في شبكات WAN لضمان الاستقرار.</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-success">✓ ميزة:</span> لا تقع الشبكة أبداً لوجود مسارات بديلة (Redundancy).</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-danger">✕ عيب:</span> التكلفة عالية جداً وكمية كابلات ضخمة.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-orange);">Bus Topology</div>
+                <p style="color: var(--text-muted); margin: 5px 0;">كابل رئيسي واحد متصل به جميع الأجهزة. (شبه منقرض).</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-success">✓ ميزة:</span> رخيص وسهل التركيب.</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-danger">✕ عيب:</span> قطع الكابل يوقف الشبكة، وزحمة في نقل البيانات.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title">Ring Topology</div>
+                <p style="color: var(--text-muted); margin: 5px 0;">الأجهزة متصلة في حلقه مغلقة والبيانات تسير في اتجاه واحد.</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-success">✓ ميزة:</span> لا يوجد تصادم للبيانات.</p>
+                <p style="color: var(--text-muted); margin: 3px 0;"><span class="badge-danger">✕ عيب:</span> عطل جهاز واحد يكسر الحلقة ويوقف الشبكة.</p>
+            </div>
         </div>
 
         <!-- ================= قسم السيشن الثانية ================= -->
@@ -333,10 +399,10 @@
 
         <div class="card">
             <div class="card-title">1. مفاهيم الـ IPv4 والـ Subnetting <span class="session-badge">تُستخدم في السيشن الثانية</span></div>
-            <p>• إجمالي العناوين $2^{32}$ (حوالي 4.3 مليار عنوان).</p>
-            <p>• سر الـ <b>(-2)</b>: خصم عنوانين أساسيين لكل بلوك وهما الـ Network ID والـ Broadcast Address.</p>
-            <p>• <b>بروتوكول الـ ARP:</b> لحل معضلة ربط الـ IP بالـ MAC Address في الشبكة المحلية (ARP Request و ARP Reply).</p>
-            <p>• <b>حالات خاصة:</b> APIPA (`169.254.x.x`) عند غياب الـ DHCP.</p>
+            <p style="color: var(--text-muted);">• إجمالي العناوين $2^{32}$ (حوالي 4.3 مليار عنوان).</p>
+            <p style="color: var(--text-muted);">• سر الـ <b>(-2)</b>: خصم عنوانين أساسيين لكل بلوك وهما الـ Network ID والـ Broadcast Address.</p>
+            <p style="color: var(--text-muted);">• <b>بروتوكول الـ ARP:</b> لحل معضلة ربط الـ IP بالـ MAC Address في الشبكة المحلية (ARP Request و ARP Reply).</p>
+            <p style="color: var(--text-muted);">• <b>حالات خاصة:</b> APIPA (`169.254.x.x`) عند غياب الـ DHCP.</p>
         </div>
 
         <div class="card">
