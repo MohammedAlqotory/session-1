@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Fundamentals - Session 1 Hub</title>
+    <title>Network Camp - ملخص أساسيات الشبكات</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
+            --bg-color: #0b1120;
+            --card-bg: #111c33;
+            --card-border: #1e293b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --code-bg: #090d16;
+            --accent-cyan: #38bdf8;
+            --accent-green: #34d399;
+            --accent-red: #f87171;
+            --accent-orange: #fb923c;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -24,84 +25,107 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
         header {
             text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid var(--border-color);
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #111c33, #0f172a);
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
             margin-bottom: 30px;
         }
         header h1 {
-            color: var(--accent);
+            color: var(--text-main);
+            font-size: 2.4rem;
             margin: 0 0 10px 0;
-            font-size: 2.2rem;
         }
         header p {
             color: var(--text-muted);
             font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .section-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: var(--accent);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        h3 {
-            color: #7dd3fc;
-        }
-        ul {
-            padding-right: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .osi-container {
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin: 40px 0 20px 0;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 10px;
-            margin-top: 15px;
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 10px;
         }
-        .osi-layer {
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            padding: 12px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            border-color: #334155;
+        }
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 12px;
+        }
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            margin: 0;
+        }
+        .sub-card {
+            background-color: #090e1a;
+            border: 1px solid #1a233a;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 12px;
+        }
+        .sub-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+        .badge-success { color: var(--accent-green); }
+        .badge-danger { color: var(--accent-red); }
+        .osi-layer {
+            background-color: #090e1a;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
         }
         .osi-layer:hover {
-            border-color: var(--accent);
-            background-color: #111827;
+            border-color: var(--accent-cyan);
         }
-        .layer-details {
+        .osi-content {
             display: none;
-            margin-top: 8px;
-            padding: 10px;
-            background: #1e293b;
-            border-radius: 4px;
+            padding: 10px 0 0 0;
             color: var(--text-muted);
             font-size: 0.95rem;
+            border-top: 1px dashed var(--card-border);
+            margin-top: 10px;
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
+            border-top: 1px solid var(--card-border);
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -109,93 +133,218 @@
 
     <div class="container">
         <header>
-            <h1>Session 1: Network Fundamentals & OSI Model</h1>
-            <p>مرجع تفاعلي أساسيات الشبكات، مكوناتها، ونموذج الاتصال السباعي</p>
+            <h1>ملخص أساسيات الشبكات</h1>
+            <p>المرجع السريع لمهندسي الشبكات، يضم مفاهيم السيشن الأولى من الأجهزة وأنواع الشبكات وحتى نموذج OSI.</p>
         </header>
 
-        <!-- مقدمة الشبكات -->
-        <div class="section-card">
-            <h2>🌐 1. مفهوم الشبكات (What is a Network)</h2>
-            <ul>
-                <li><b>التعريف:</b> ربط مجموعة من الأجهزة (Computers, Printers, Servers) معاً بغرض مشاركة الموارد (Resources) وتبادل البيانات والمعلومات بكفاءة وأمان.</li>
-                <li><b>الهدف الرئيسي:</b> سهولة التواصل، تقليل التكلفة، المركزية في إدارة البيانات، وحفظ النسخ الاحتياطية.</li>
-            </ul>
-        </div>
-
-        <!-- مكونات الشبكة والعميل والخادم -->
-        <div class="section-card">
-            <h2>💻 2. مكونات الشبكة (Network Components) وعلاقة Client/Server</h2>
-            <ul>
-                <li><b>مكونات الشبكة:</b> أجهزة طرفية (End Devices)، أجهزة ربط وسطية (Switches, Routers)، ووسائط نقل (كابلات أو لاسلكي).</li>
-                <li><b>العميل (Client):</b> الجهاز أو البرنامج اللي بيطلب الخدمة (زي متصفح الويب عندك لما يطلب صفحة من موقع).</li>
-                <li><b>الخادم (Server):</b> الجهاز العملاق أو القوي اللي بيستقبل الطلبات وبيقدم الخدمات والبيانات للعملاء.</li>
-            </ul>
-        </div>
-
-        <!-- نموذج الـ OSI Model -->
-        <div class="section-card">
-            <h2>🧱 3. نموذج الاتصال (OSI Model - 7 Layers)</h2>
-            <p>انقر على أي طبقة لاستعراض تفاصيلها ووظيفتها:</p>
+        <!-- 1. مفهوم الشبكة -->
+        <div class="section-title">🌐 1. مفهوم الشبكة (Network Definition)</div>
+        <div class="card">
+            <p>الشبكة هي ربط جهازين أو أكثر معاً بهدف رئيسي وهو <b>المشاركة (Sharing)</b> سواء للموارد (طابعات، البيانات، ملفات)، أو الخدمات (إنترنت).</p>
             
-            <div class="osi-container">
-                <div class="osi-layer" onclick="toggleLayer(1)">
-                    <span><b>Layer 7: Application Layer</b> (طبقة التطبيقات)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer1-details" class="layer-details">الواجهة اللي بيتعامل معاها المستخدم مباشرة (زي المتصفح وبرامج البريد الإلكتروني HTTP, FTP, DNS).</div>
-
-                <div class="osi-layer" onclick="toggleLayer(2)">
-                    <span><b>Layer 6: Presentation Layer</b> (طبقة العرض)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer2-details" class="layer-details">مسؤولة عن تنسيق البيانات، التشفير (Encryption)، وضغط البيانات (Compression) عشان تفهمها البرامج.</div>
-
-                <div class="osi-layer" onclick="toggleLayer(3)">
-                    <span><b>Layer 5: Session Layer</b> (طبقة الجلسات)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer3-details" class="layer-details">بفتح وإدارة وإغلاق جلسات الاتصال بين الأجهزة وتأمين استمراريتها أثناء نقل الداتا.</div>
-
-                <div class="osi-layer" onclick="toggleLayer(4)">
-                    <span><b>Layer 4: Transport Layer</b> (طبقة النقل)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer4-details" class="layer-details">بتقطع الداتا لقطعت صغيرة (Segments) وبتتأكد من وصولها سليمة وبدون أخطاء عبر بروتوكولات مثل TCP و UDP.</div>
-
-                <div class="osi-layer" onclick="toggleLayer(5)">
-                    <span><b>Layer 3: Network Layer</b> (طبقة الشبكة)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer5-details" class="layer-details">مسؤولة عن توجيه البيانات عبر الشبكات المختلفة باستخدام عناوين الـ IP واختيار أقصر طريق (Routing).</div>
-
-                <div class="osi-layer" onclick="toggleLayer(6)">
-                    <span><b>Layer 2: Data Link Layer</b> (طبقة ربط البيانات)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer6-details" class="layer-details">بتعامل الداتا على شكل Frames وبتستدم الـ MAC Address عشان تنقل البيانات بين الأجهزة في نفس الشبكة المحلية (LAN).</div>
-
-                <div class="osi-layer" onclick="toggleLayer(7)">
-                    <span><b>Layer 1: Physical Layer</b> (الطبقة الفيزيائية)</span>
-                    <span>▼</span>
-                </div>
-                <div id="layer7-details" class="layer-details">الطبقة السفلى الخاصة بنقل البيانات على شكل إشارات كهربائية أو ضوئية عبر الكابلات أو اللاسلكي.</div>
+            <div class="sub-card">
+                <div class="sub-title">💻 الأجهزة (Devices)</div>
+                <p style="color: var(--text-muted); margin: 0;">أجهزة طرفية (End Devices) وأجهزة ربط (Intermediary).</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title">📡 الوسائط (Media)</div>
+                <p style="color: var(--text-muted); margin: 0;">الكابلات النحاسية، الألياف الضوئية، أو الموجات اللاسلكية.</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title">📋 البروتوكولات (Protocols)</div>
+                <p style="color: var(--text-muted); margin: 0;">اللغة المشتركة والقواعد المنظمة لنقل البيانات (مثل TCP/IP).</p>
             </div>
         </div>
 
+        <!-- 2. أنواع الشبكات حسب الحجم -->
+        <div class="section-title">📊 2. أنواع الشبكات حسب الحجم (Network Scope)</div>
+        <div class="card">
+            <div class="sub-title">PAN (Personal Area Network)</div>
+            <p style="color: var(--text-muted); margin: 0 0 10px 0;">شبكة شخصية (أمتار)، مثل: سماعة بلوتوث، ماوس وايرلس.</p>
+            
+            <div class="sub-title">LAN (Local Area Network)</div>
+            <p style="color: var(--text-muted); margin: 0 0 10px 0;">شبكة محلية (مبنى/منزل)، مثل: راوتر البيت والأجهزة المتصلة.</p>
+
+            <div class="sub-title">CAN (Campus Area Network)</div>
+            <p style="color: var(--text-muted); margin: 0 0 10px 0;">شبكة حرم جامعي/شركة، ربط عدة مباني متقاربة.</p>
+
+            <div class="sub-title">MAN (Metropolitan Area Network)</div>
+            <p style="color: var(--text-muted); margin: 0 0 10px 0;">شبكة مدينة، ربط فروع شركة داخل نفس المدينة.</p>
+
+            <div class="sub-title">WAN (Wide Area Network)</div>
+            <p style="color: var(--text-muted); margin: 0 0; color: var(--accent-orange);">شبكة واسعة (دول/قارات)، مثل: الإنترنت وربط الفروع البعيدة.</p>
+        </div>
+
+        <!-- 3. أجهزة الشبكة -->
+        <div class="section-title">⚙️ 3. أجهزة الشبكة (Network Devices)</div>
+        
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-green);">Switch</div>
+            <p style="margin: 5px 0;">
+                <span class="badge-success">✓</span> يربط الأجهزة في نفس الشبكة (LAN).<br>
+                <span class="badge-success">✓</span> جهاز ذكي، بيتعامل بالعنوان الفيزيائي (MAC Address).<br>
+                <span class="badge-success">✓</span> يرسل البيانات للوجهة فقط (Unicast) بلا زحمة.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-cyan);">Router</div>
+            <p style="margin: 5px 0;">
+                <span class="badge-success">✓</span> يربط شبكات مختلفة ببعضها (WAN).<br>
+                <span class="badge-success">✓</span> بيتعامل بالعنوان المنطقي (IP Address).<br>
+                <span class="badge-success">✓</span> يختار "أفضل مسار" لنقل البيانات (Routing).
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-red);">Hub</div>
+            <p style="margin: 5px 0;">
+                <span class="badge-danger">✕</span> جهاز قديم (غبي)، لا يفهم العناوين.<br>
+                <span class="badge-danger">✕</span> يرسل البيانات للجميع (Broadcast).<br>
+                <span class="badge-danger">✕</span> يسبب بطء وتصادم للبيانات (Collision).
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Access Point</div>
+            <p style="color: var(--text-muted); margin: 0;">نقطة وصول لتحويل الشبكة السلكية إلى لاسلكية (Wi-Fi) للسماح بتوصيل الهواتف والأجهزة بدون كابلات.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-orange);">Modem</div>
+            <p style="color: var(--text-muted); margin: 0;">مترجم الإشارات (Modulator/Demodulator) بين الإشارة الرقمية للكمبيوتر والإشارة التناظرية لخطوط التليفون.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-red);">Firewall</div>
+            <p style="color: var(--text-muted); margin: 0;">الجدار الناري، حارس أمن الشبكة. يراقب البيانات الداخلة والخارجة ويمنع الاختراقات بناءً على قواعد محددة.</p>
+        </div>
+
+        <!-- 4. وسائط النقل -->
+        <div class="section-title">🔌 4. وسائط النقل (Transmission Media)</div>
+        <div class="card">
+            <div class="sub-title">سلكي (Wired)</div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-cyan);">Twisted Pair (UTP/STP)</div>
+                <p style="color: var(--text-muted); margin: 0;">كابلات نحاس مجدولة (Ethernet) تُستخدم في الـ LAN. تنقل نبضات كهربائية. (Cat5e, Cat6).</p>
+            </div>
+            <div class="sub-card">
+                <div class="sub-title" style="color: var(--accent-cyan);">Fiber Optics</div>
+                <p style="color: var(--text-muted); margin: 0;">ألياف ضوئية. سرعات فائقة ومسافات طويلة، تنقل البيانات كنبضات ضوء. (Single-mode, Multi-mode).</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="sub-title">لاسلكي (Wireless)</div>
+            <p style="color: var(--text-muted); margin: 5px 0;">تعتمد على موجات الراديو لنقل البيانات في الهواء، توفر حرية الحركة (Mobility).</p>
+            <p style="color: var(--text-muted); margin: 5px 0;"><b>أمثلة:</b> Wi-Fi, 4G/5G, Bluetooth</p>
+            <p style="color: var(--accent-red); margin: 5px 0;"><b>العيوب:</b> عرضة للتشويش والتداخل، وأقل أماناً من السلكي.</p>
+        </div>
+
+        <!-- 5. نموذج العميل والخدم -->
+        <div class="section-title">🤝 5. نموذج الخادم والعميل (Client-Server Model)</div>
+        <div class="card">
+            <div class="sub-card" style="border-color: var(--accent-cyan);">
+                <div class="sub-title" style="color: var(--accent-cyan);">Client (العميل)</div>
+                <p style="color: var(--text-muted); margin: 0;">الجهاز أو البرنامج الذي يطلب (Request) الخدمة (مثل المتصفح).</p>
+            </div>
+            <div style="text-align: center; margin: 10px 0; color: var(--accent-cyan);">Request ⇄ Response</div>
+            <div class="sub-card" style="border-color: var(--accent-green);">
+                <div class="sub-title" style="color: var(--accent-green);">Server (الخادم)</div>
+                <p style="color: var(--text-muted); margin: 0;">الجهاز القوي الذي يعالج الطلب ويرد (Response) بالبيانات (Web Server, File Server).</p>
+            </div>
+        </div>
+
+        <!-- 6. نموذج OSI -->
+        <div class="section-title">🧱 6. نموذج OSI (The 7 Layers)</div>
+        <p style="color: var(--text-muted);">اضغط على أي طبقة لرؤية التفاصيل (من الطبقة 7 إلى 1):</p>
+        
+        <div class="osi-layer" onclick="toggleOsi(1)">
+            <span>L7. Application Layer (طبقة التطبيقات)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-1" class="osi-content">الواجهة اللي بيتعامل معاها المستخدم مباشرة (HTTP, FTP, DNS).</div>
+
+        <div class="osi-layer" onclick="toggleOsi(2)">
+            <span>L6. Presentation Layer (طبقة التهيئة)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-2" class="osi-content">مسؤولة عن تنسيق البيانات، التشفير (Encryption)، وضغط البيانات.</div>
+
+        <div class="osi-layer" onclick="toggleOsi(3)">
+            <span>L5. Session Layer (طبقة الجلسة)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-3" class="osi-content">فتح وإدارة وإغلاق جلسات الاتصال بين الأجهزة وتأمين استمراريتها.</div>
+
+        <div class="osi-layer" onclick="toggleOsi(4)">
+            <span>L4. Transport Layer (طبقة النقل)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-4" class="osi-content">بتقطع الداتا لقطع (Segments) وبتتأكد من وصولها سليمة عبر TCP و UDP.</div>
+
+        <div class="osi-layer" onclick="toggleOsi(5)">
+            <span>L3. Network Layer (طبقة الشبكة)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-5" class="osi-content">توجيه البيانات عبر الشبكات باستخدام عناوين الـ IP واختيار أقصر مسار (Routing).</div>
+
+        <div class="osi-layer" onclick="toggleOsi(6)">
+            <span>L2. Data Link Layer (طبقة ربط البيانات)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-6" class="osi-content">تعامل الداتا على شكل Frames واستخدام الـ MAC Address لنقلها في الـ LAN.</div>
+
+        <div class="osi-layer" onclick="toggleOsi(7)">
+            <span>L1. Physical Layer (الطبقة الفيزيائية)</span>
+            <span>▼</span>
+        </div>
+        <div id="osi-7" class="osi-content">نقل البيانات على شكل إشارات كهربائية أو ضوئية عبر الكابلات أو اللاسلكي.</div>
+
+        <!-- 7. الهيكل الهندسي -->
+        <div class="section-title">📐 7. الهيكل الهندسي للشبكة (Network Topologies)</div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-cyan);">Star Topology</div>
+            <p style="margin: 5px 0;">جهاز مركزي (Switch) تتصل به جميع الأجهزة بشكل مستقل. (الأكثر استخداماً).</p>
+            <p style="margin: 5px 0;"><span class="badge-success">✓ ميزة:</span> عطل كابل واحد لا يؤثر على باقي الشبكة.</p>
+            <p style="margin: 5px 0;"><span class="badge-danger">✕ عيب:</span> إذا تعطل الجهاز المركزي تقع الشبكة كاملة.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-green);">Mesh Topology</div>
+            <p style="margin: 5px 0;">كل جهاز متصل بكل الأجهزة الأخرى. تستخدم في شبكات WAN لضمان الاستقرار.</p>
+            <p style="margin: 5px 0;"><span class="badge-success">✓ ميزة:</span> لا تقع الشبكة أبداً لوجود مسارات بديلة (Redundancy).</p>
+            <p style="margin: 5px 0;"><span class="badge-danger">✕ عيب:</span> التكلفة عالية جداً وكمية كابلات ضخمة.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-orange);">Bus Topology</div>
+            <p style="margin: 5px 0;">كابل رئيسي واحد متصل به جميع الأجهزة. (شبه منقرض).</p>
+            <p style="margin: 5px 0;"><span class="badge-success">✓ ميزة:</span> رخيص وسهل التركيب.</p>
+            <p style="margin: 5px 0;"><span class="badge-danger">✕ عيب:</span> قطع الكابل يوقف الشبكة، وزحمة في نقل البيانات.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Ring Topology</div>
+            <p style="margin: 5px 0;">الأجهزة متصلة في حلقه مغلقة والبيانات تسير في اتجاه واحد.</p>
+            <p style="margin: 5px 0;"><span class="badge-success">✓ ميزة:</span> لا يوجد تصادم للبيانات.</p>
+            <p style="margin: 5px 0;"><span class="badge-danger">✕ عيب:</span> عطل جهاز واحد يكسر الحلقة ويوقف الشبكة.</p>
+        </div>
+
         <footer>
-            <p>مرجع السيشن الأولى (Network Fundamentals) | جاهز للرفع على GitHub.</p>
+            <p>Created by Gemini for Engineering Study Revision</p>
         </footer>
     </div>
 
     <script>
-        function toggleLayer(layerNum) {
-            let details = document.getElementById(`layer${layerNum}-details`);
-            if (details.style.display === "block") {
-                details.style.display = "none";
+        function toggleOsi(id) {
+            let el = document.getElementById(`osi-${id}`);
+            if (el.style.display === "block") {
+                el.style.display = "none";
             } else {
-                // إغلاق الباقي للاستعراض السلس
-                document.querySelectorAll('.layer-details').forEach(el => el.style.display = 'none');
-                details.style.display = "block";
+                document.querySelectorAll('.osi-content').forEach(item => item.style.display = 'none');
+                el.style.display = "block";
             }
         }
     </script>
