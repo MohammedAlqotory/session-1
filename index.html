@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Fundamentals - Session 1 Hub</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --code-bg: #090d16;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: var(--accent);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: var(--accent);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h3 {
+            color: #7dd3fc;
+        }
+        ul {
+            padding-right: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .osi-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .osi-layer {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .osi-layer:hover {
+            border-color: var(--accent);
+            background-color: #111827;
+        }
+        .layer-details {
+            display: none;
+            margin-top: 8px;
+            padding: 10px;
+            background: #1e293b;
+            border-radius: 4px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Session 1: Network Fundamentals & OSI Model</h1>
+            <p>مرجع تفاعلي أساسيات الشبكات، مكوناتها، ونموذج الاتصال السباعي</p>
+        </header>
+
+        <!-- مقدمة الشبكات -->
+        <div class="section-card">
+            <h2>🌐 1. مفهوم الشبكات (What is a Network)</h2>
+            <ul>
+                <li><b>التعريف:</b> ربط مجموعة من الأجهزة (Computers, Printers, Servers) معاً بغرض مشاركة الموارد (Resources) وتبادل البيانات والمعلومات بكفاءة وأمان.</li>
+                <li><b>الهدف الرئيسي:</b> سهولة التواصل، تقليل التكلفة، المركزية في إدارة البيانات، وحفظ النسخ الاحتياطية.</li>
+            </ul>
+        </div>
+
+        <!-- مكونات الشبكة والعميل والخادم -->
+        <div class="section-card">
+            <h2>💻 2. مكونات الشبكة (Network Components) وعلاقة Client/Server</h2>
+            <ul>
+                <li><b>مكونات الشبكة:</b> أجهزة طرفية (End Devices)، أجهزة ربط وسطية (Switches, Routers)، ووسائط نقل (كابلات أو لاسلكي).</li>
+                <li><b>العميل (Client):</b> الجهاز أو البرنامج اللي بيطلب الخدمة (زي متصفح الويب عندك لما يطلب صفحة من موقع).</li>
+                <li><b>الخادم (Server):</b> الجهاز العملاق أو القوي اللي بيستقبل الطلبات وبيقدم الخدمات والبيانات للعملاء.</li>
+            </ul>
+        </div>
+
+        <!-- نموذج الـ OSI Model -->
+        <div class="section-card">
+            <h2>🧱 3. نموذج الاتصال (OSI Model - 7 Layers)</h2>
+            <p>انقر على أي طبقة لاستعراض تفاصيلها ووظيفتها:</p>
+            
+            <div class="osi-container">
+                <div class="osi-layer" onclick="toggleLayer(1)">
+                    <span><b>Layer 7: Application Layer</b> (طبقة التطبيقات)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer1-details" class="layer-details">الواجهة اللي بيتعامل معاها المستخدم مباشرة (زي المتصفح وبرامج البريد الإلكتروني HTTP, FTP, DNS).</div>
+
+                <div class="osi-layer" onclick="toggleLayer(2)">
+                    <span><b>Layer 6: Presentation Layer</b> (طبقة العرض)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer2-details" class="layer-details">مسؤولة عن تنسيق البيانات، التشفير (Encryption)، وضغط البيانات (Compression) عشان تفهمها البرامج.</div>
+
+                <div class="osi-layer" onclick="toggleLayer(3)">
+                    <span><b>Layer 5: Session Layer</b> (طبقة الجلسات)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer3-details" class="layer-details">بفتح وإدارة وإغلاق جلسات الاتصال بين الأجهزة وتأمين استمراريتها أثناء نقل الداتا.</div>
+
+                <div class="osi-layer" onclick="toggleLayer(4)">
+                    <span><b>Layer 4: Transport Layer</b> (طبقة النقل)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer4-details" class="layer-details">بتقطع الداتا لقطعت صغيرة (Segments) وبتتأكد من وصولها سليمة وبدون أخطاء عبر بروتوكولات مثل TCP و UDP.</div>
+
+                <div class="osi-layer" onclick="toggleLayer(5)">
+                    <span><b>Layer 3: Network Layer</b> (طبقة الشبكة)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer5-details" class="layer-details">مسؤولة عن توجيه البيانات عبر الشبكات المختلفة باستخدام عناوين الـ IP واختيار أقصر طريق (Routing).</div>
+
+                <div class="osi-layer" onclick="toggleLayer(6)">
+                    <span><b>Layer 2: Data Link Layer</b> (طبقة ربط البيانات)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer6-details" class="layer-details">بتعامل الداتا على شكل Frames وبتستدم الـ MAC Address عشان تنقل البيانات بين الأجهزة في نفس الشبكة المحلية (LAN).</div>
+
+                <div class="osi-layer" onclick="toggleLayer(7)">
+                    <span><b>Layer 1: Physical Layer</b> (الطبقة الفيزيائية)</span>
+                    <span>▼</span>
+                </div>
+                <div id="layer7-details" class="layer-details">الطبقة السفلى الخاصة بنقل البيانات على شكل إشارات كهربائية أو ضوئية عبر الكابلات أو اللاسلكي.</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>مرجع السيشن الأولى (Network Fundamentals) | جاهز للرفع على GitHub.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleLayer(layerNum) {
+            let details = document.getElementById(`layer${layerNum}-details`);
+            if (details.style.display === "block") {
+                details.style.display = "none";
+            } else {
+                // إغلاق الباقي للاستعراض السلس
+                document.querySelectorAll('.layer-details').forEach(el => el.style.display = 'none');
+                details.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
